@@ -1,7 +1,7 @@
 import "./DisplayOutputs.scss";
 
 const DisplayOutputs = () => {
-	return <div></div>;
+	return <div id="display" className="display"></div>;
 };
 
 export default DisplayOutputs;

@@ -1,7 +1,7 @@
 import "./Buttons.scss";
 
 const Buttons = () => {
-	return <div></div>;
+	return <button clasaName="button"></button>;
 };
 
 export default Buttons;
