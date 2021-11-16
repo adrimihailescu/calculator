@@ -1,7 +1,11 @@
 import "./Layout.scss";
 
 const Layout = (props) => {
-	return <main {...props}>{props.children}</main>;
+	return (
+		<main className="layout" {...props}>
+			{props.children}
+		</main>
+	);
 };
 
 export default Layout;

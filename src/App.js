@@ -6,7 +6,7 @@ import Footer from "./components/Footer/Footer";
 import { useState } from "react";
 
 function App() {
-	const [current, setCurrent] = useState();
+	const [current, setCurrent] = useState(0);
 	const [operation, setOperation] = useState();
 	const [previous, setPrevious] = useState();
 
