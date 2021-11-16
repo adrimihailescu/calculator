@@ -1,9 +1,6 @@
 import "./Calculator.scss";
-import "../ClearButton/ClearButton";
-import "../DisplayOutputs/DisplayOutputs";
-import "../Operators/Operators";
-import "../NumLock/NumLock";
-import NumLock from "../NumLock/NumLock";
+import DisplayOutputs from "./DisplayOutputs/DisplayOutputs";
+import NumPad from "./NumPad/NumPad";
 
 const Calculator = ({
 	current,
@@ -14,14 +11,13 @@ const Calculator = ({
 }) => {
 	return (
 		<div className="container">
-			<NumLock
+			<NumPad
 				current={current}
 				operation={operation}
 				previous={previous}
 				setOperation={setOperation}
 			/>
-			{/* <ClearButton />
-			<DisplayOutputs /> */}
+			<DisplayOutputs />
 		</div>
 	);
 };

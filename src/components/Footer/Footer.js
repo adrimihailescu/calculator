@@ -5,7 +5,7 @@ import React from "react";
 const Footer = () => {
 	return (
 		<div>
-			Page made by{" "}
+			{/* Page made by{" "}
 			<a
 				href="https://codepen.io/adrimihailescu"
 				target="_blank"
@@ -13,7 +13,7 @@ const Footer = () => {
 			>
 				{" "}
 				Adriana{" "}
-			</a>
+			</a> */}
 		</div>
 	);
 };
