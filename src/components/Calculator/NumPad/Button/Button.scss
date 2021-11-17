@@ -1,44 +1,69 @@
 .number {
 	background-color: aquamarine;
+	padding: 30px;
+	font-size: 24px;
 }
 
-.grid-item-1 {
+.operator {
+	background-color: beige;
+	padding: 20px;
+	font-size: 24px;
+}
+
+.delete {
+	background-color: orange;
+	padding: 30px;
+	font-size: 24px;
+}
+
+.result {
+	background-color: plum;
+	padding: 30px;
+	font-size: 24px;
+}
+
+.decimal {
+	background-color: aquamarine;
+	font-size: 24px;
+}
+
+.grid-item-one {
 	grid-area: one;
 }
 
-.grid-item-2 {
+.grid-item-two {
 	grid-area: two;
 }
 
-.grid-item-3 {
+.grid-item-three {
 	grid-area: three;
 }
 
-.grid-item-4 {
+.grid-item-four {
 	grid-area: four;
 }
 
-.grid-item-5 {
+.grid-item-five {
 	grid-area: five;
 }
 
-.grid-item-6 {
+.grid-item-six {
 	grid-area: six;
 }
 
-.grid-item-7 {
+.grid-item-seven {
 	grid-area: seven;
 }
 
-.grid-item-8 {
+.grid-item-eight {
 	grid-area: eight;
 }
 
-.grid-item-9 {
+.grid-item-nine {
 	grid-area: nine;
 }
 
-.grid-item-0 {
+.grid-item-zero {
 	grid-area: zero;
 }
 
@@ -66,6 +91,6 @@
 	grid-area: decimal;
 }
 
-.grid-item-ac {
-	grid-area: ac;
+.grid-item-clear {
+	grid-area: clear;
 }
