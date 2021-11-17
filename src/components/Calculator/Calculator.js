@@ -2,21 +2,10 @@ import "./Calculator.scss";
 import DisplayOutputs from "./DisplayOutputs/DisplayOutputs";
 import NumPad from "./NumPad/NumPad";
 
-const Calculator = ({
-	current,
-	previous,
-	operation,
-	setCurrent,
-	setOperation,
-}) => {
+const Calculator = ({ onClickHandler }) => {
 	return (
 		<div className="container">
-			<NumPad
-				current={current}
-				operation={operation}
-				previous={previous}
-				setOperation={setOperation}
-			/>
+			<NumPad onClickHandler={onClickHandler} />
 			<DisplayOutputs />
 		</div>
 	);
