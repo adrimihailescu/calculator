@@ -1,7 +1,11 @@
 import "./DisplayOutputs.scss";
 
-const DisplayOutputs = () => {
-	return <div id="display" className="display"></div>;
+const DisplayOutputs = ({ onClickHandler, currentValue }) => {
+	return (
+		<div id="display" className="display">
+			{currentValue}
+		</div>
+	);
 };
 
 export default DisplayOutputs;

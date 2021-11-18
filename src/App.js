@@ -6,7 +6,10 @@ import Footer from "./components/Footer/Footer";
 import { useState } from "react";
 
 function App() {
-	const [currentDisplay, setCurrentDisplay] = useState("");
+	const [currentValue, setCurrentValue] = useState("0");
+	const [previousValue, setPreviousValue] = useState("");
+	const [operation, setOperation] = useState();
+	const [decimal, setDecimal] = useState();
 
 	const onClickHandler = (e) => {
 		const classes = e.target.className.split(" ");
@@ -14,18 +17,44 @@ function App() {
 		switch (true) {
 			case classes.includes("operator"):
 			case classes.includes("number"):
-				console.log("number/operator pressed");
-				setCurrentDisplay(currentDisplay.concat(value));
+				if (currentValue !== "0" && !operation) {
+					setCurrentValue(currentValue + value);
+					setOperation();
+					// eslint-disable-next-line no-const-assign
+					//
+					// console.log("number/operator pressed");
+				} else {
+					setCurrentValue(value);
+					// const newValue = currentValue.slice(0, currentValue.length - 1);
+					// setCurrentValue(newValue + value);
+					// eslint-disable-next-line no-const-assign
+				}
+
 				break;
 
 			case classes.includes("result"):
+				if (setPreviousValue(currentValue));
+				const result = currentValue.includes(".")
+					? eval(currentValue).toFixed(2)
+					: eval(currentValue);
+				setCurrentValue(result);
+
 				// eslint-disable-next-line no-eval
 				// setCurrentDisplay(parseInt(eval(String(currentDisplay)), 10));
-				console.log(eval(parseFloat(currentDisplay)));
+				console.log(eval(parseFloat(currentValue)));
 
 				break;
 			case classes.includes("decimal"):
+				if (!decimal) {
+					setCurrentValue(currentValue + ".");
+					setDecimal(true);
+				}
 				// console.log("decimal");
+
+				break;
+			case classes.includes("delete"):
+				setOperation("");
+				setCurrentValue("0");
 
 				break;
 
@@ -33,12 +62,12 @@ function App() {
 				break;
 		}
 
-		console.log(currentDisplay);
+		console.log(currentValue);
 	};
 	return (
 		<Layout className="App">
 			<Header content="Calculator" />
-			<Calculator onClickHandler={onClickHandler} />
+			<Calculator onClickHandler={onClickHandler} currentValue={currentValue} />
 			<Footer />
 		</Layout>
 	);
