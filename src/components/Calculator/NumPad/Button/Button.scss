@@ -2,9 +2,12 @@
 	background-color: #d2d8d6;
 	background-image: linear-gradient(315deg, #d2d8d6 0%, #dce8e0 74%);
 	border-radius: 7px;
-
+	box-shadow: 5px 5px;
 	padding: 30px;
 	font-size: 24px;
+	&:hover {
+		cursor: pointer;
+	}
 }
 
 .operator {
@@ -13,6 +16,10 @@
 	padding: 20px;
 	font-size: 24px;
 	border-radius: 7px;
+	box-shadow: 5px 5px;
+	&:hover {
+		cursor: pointer;
+	}
 }
 
 .delete {
@@ -21,6 +28,10 @@
 	border-radius: 7px;
 	padding: 30px;
 	font-size: 24px;
+	box-shadow: 5px 5px;
+	&:hover {
+		cursor: pointer;
+	}
 }
 
 .result {
@@ -29,6 +40,10 @@
 	border-radius: 7px;
 	padding: 30px;
 	font-size: 24px;
+	box-shadow: 5px 5px;
+	&:hover {
+		cursor: pointer;
+	}
 }
 
 .decimal {
@@ -36,6 +51,10 @@
 	background-image: linear-gradient(315deg, #d2d8d6 0%, #dce8e0 74%);
 	border-radius: 7px;
 	font-size: 24px;
+	box-shadow: 5px 5px;
+	&:hover {
+		cursor: pointer;
+	}
 }
 
 .grid-item-one {
