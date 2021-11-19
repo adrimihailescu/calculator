@@ -10,6 +10,7 @@ function App() {
 	const [previousValue, setPreviousValue] = useState("");
 	const [operation, setOperation] = useState();
 	const [decimal, setDecimal] = useState();
+	const [wasLastEqual, setWasLastEqual] = useState(false);
 
 	const onClickHandler = (e) => {
 		const classes = e.target.className.split(" ");
@@ -18,16 +19,11 @@ function App() {
 		switch (true) {
 			case classes.includes("operator"):
 			case classes.includes("number"):
-				if (currentValue !== "0" && !operation) {
+				if (currentValue !== "0" && !operation && !wasLastEqual) {
 					setCurrentValue(currentValue + value);
-					setOperation();
-					// eslint-disable-next-line no-const-assign
-					//
-					// console.log("number/operator pressed");
 				} else {
+					setWasLastEqual(false);
 					setCurrentValue(value);
-
-					// eslint-disable-next-line no-const-assign
 				}
 
 				break;
@@ -40,9 +36,8 @@ function App() {
 					: // eslint-disable-next-line no-eval
 					  eval(currentValue);
 				setCurrentValue(result);
+				setWasLastEqual(true);
 
-				// eslint-disable-next-line no-eval
-				// setCurrentDisplay(parseInt(eval(String(currentDisplay)), 10));
 				console.log(eval(parseFloat(currentValue)));
 
 				break;
