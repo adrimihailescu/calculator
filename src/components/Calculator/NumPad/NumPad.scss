@@ -1,7 +1,8 @@
 .num-pad {
-	margin: 0 auto;
+	padding: 10px;
 	display: grid;
 	max-width: 500px;
+	gap: 5px;
 	grid-template-areas:
 		"clear clear subtract divide"
 		"seven eight nine multiply"

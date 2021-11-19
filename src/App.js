@@ -7,8 +7,8 @@ import { useState } from "react";
 
 function App() {
 	const [currentValue, setCurrentValue] = useState("0");
+	// eslint-disable-next-line no-unused-vars
 	const [previousValue, setPreviousValue] = useState("");
-	const [operation, setOperation] = useState();
 	const [decimal, setDecimal] = useState();
 	const [wasLastEqual, setWasLastEqual] = useState(false);
 
@@ -17,15 +17,18 @@ function App() {
 		const value = e.target.textContent;
 
 		switch (true) {
-			case classes.includes("operator"):
 			case classes.includes("number"):
-				if (currentValue !== "0" && !operation && !wasLastEqual) {
+				if (currentValue !== "0" && !wasLastEqual) {
 					setCurrentValue(currentValue + value);
 				} else {
 					setWasLastEqual(false);
 					setCurrentValue(value);
 				}
 
+				break;
+			case classes.includes("operator"):
+				setCurrentValue(currentValue + value);
+				setWasLastEqual(false);
 				break;
 
 			case classes.includes("result"):
@@ -38,6 +41,7 @@ function App() {
 				setCurrentValue(result);
 				setWasLastEqual(true);
 
+				// eslint-disable-next-line no-eval
 				console.log(eval(parseFloat(currentValue)));
 
 				break;
@@ -50,7 +54,6 @@ function App() {
 
 				break;
 			case classes.includes("delete"):
-				setOperation("");
 				setCurrentValue("0");
 
 				break;
