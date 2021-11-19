@@ -14,6 +14,7 @@ function App() {
 	const onClickHandler = (e) => {
 		const classes = e.target.className.split(" ");
 		const value = e.target.textContent;
+
 		switch (true) {
 			case classes.includes("operator"):
 			case classes.includes("number"):
@@ -25,8 +26,7 @@ function App() {
 					// console.log("number/operator pressed");
 				} else {
 					setCurrentValue(value);
-					// const newValue = currentValue.slice(0, currentValue.length - 1);
-					// setCurrentValue(newValue + value);
+
 					// eslint-disable-next-line no-const-assign
 				}
 
@@ -35,8 +35,10 @@ function App() {
 			case classes.includes("result"):
 				if (setPreviousValue(currentValue));
 				const result = currentValue.includes(".")
-					? eval(currentValue).toFixed(2)
-					: eval(currentValue);
+					? // eslint-disable-next-line no-eval
+					  eval(currentValue).toFixed(2)
+					: // eslint-disable-next-line no-eval
+					  eval(currentValue);
 				setCurrentValue(result);
 
 				// eslint-disable-next-line no-eval
@@ -47,7 +49,7 @@ function App() {
 			case classes.includes("decimal"):
 				if (!decimal) {
 					setCurrentValue(currentValue + ".");
-					setDecimal(true);
+					setDecimal();
 				}
 				// console.log("decimal");
 
