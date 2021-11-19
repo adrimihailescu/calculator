@@ -8,8 +8,6 @@ import { useState } from "react";
 function App() {
 	const [currentValue, setCurrentValue] = useState("0");
 	// eslint-disable-next-line no-unused-vars
-	const [previousValue, setPreviousValue] = useState("");
-	const [decimal, setDecimal] = useState();
 	const [wasLastEqual, setWasLastEqual] = useState(false);
 
 	const onClickHandler = (e) => {
@@ -32,10 +30,9 @@ function App() {
 				break;
 
 			case classes.includes("result"):
-				if (setPreviousValue(currentValue));
 				const result = currentValue.includes(".")
 					? // eslint-disable-next-line no-eval
-					  eval(currentValue).toFixed(2)
+					  eval(currentValue).toFixed(1)
 					: // eslint-disable-next-line no-eval
 					  eval(currentValue);
 				setCurrentValue(result);
@@ -46,10 +43,7 @@ function App() {
 
 				break;
 			case classes.includes("decimal"):
-				if (!decimal) {
-					setCurrentValue(currentValue + ".");
-					setDecimal();
-				}
+				setCurrentValue(currentValue + ".");
 				// console.log("decimal");
 
 				break;
