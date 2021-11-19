@@ -7,8 +7,8 @@ import { useState } from "react";
 
 function App() {
 	const [currentValue, setCurrentValue] = useState("0");
-	// eslint-disable-next-line no-unused-vars
 	const [wasLastEqual, setWasLastEqual] = useState(false);
+	const [hasDecimal, setHasDecimal] = useState(false);
 
 	const onClickHandler = (e) => {
 		const classes = e.target.className.split(" ");
@@ -27,6 +27,7 @@ function App() {
 			case classes.includes("operator"):
 				setCurrentValue(currentValue + value);
 				setWasLastEqual(false);
+				setHasDecimal(false);
 				break;
 
 			case classes.includes("result"):
@@ -43,7 +44,10 @@ function App() {
 
 				break;
 			case classes.includes("decimal"):
-				setCurrentValue(currentValue + ".");
+				if (!hasDecimal) {
+					setCurrentValue(currentValue + ".");
+					setHasDecimal(true);
+				}
 				// console.log("decimal");
 
 				break;
@@ -55,8 +59,6 @@ function App() {
 			default:
 				break;
 		}
-
-		console.log(currentValue);
 	};
 	return (
 		<Layout className="App">
